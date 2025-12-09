@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunhwa's Log - Gallery</title>
+    <style>
+        * { padding: 0; margin: 0; box-sizing: border-box; }
+        li { list-style-type: none; }
+        a { text-decoration: none; color: #333; }
+        body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background-color: #fff; }
+        
+        #page { width: 100%; margin: 0; }
+
+        header {
+            width: 100%;
+            padding: 15px 40px; 
+            border-bottom: solid 1px #cccccc;
+            text-align: left; 
+        }
+        #logo img { height: 50px; vertical-align: middle; }
+
+        nav {
+            width: 100%;
+            min-height: 70px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            border-bottom: 1px solid #eee; 
+        }
+        nav ul { display: flex; flex-wrap: wrap; justify-content: center; }
+        nav li { margin: 5px 10px; }
+        nav li a {
+            display: block;
+            padding: 10px 25px;
+            border: 1px solid #bbb;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #555;
+            transition: 0.3s;
+            background-color: white;
+            white-space: nowrap;
+        }
+        nav li a:hover, nav li a.active {
+            background-color: #f7f7f7;
+            border-color: #888;
+            color: #000;
+        }
+
+        .gallery-container {
+            width: 100%;
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .page-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .grid-section {
+            display: grid;
+            gap: 30px; /* 카드 간 간격 조금 더 넓게 수정 */
+            margin-bottom: 50px;
+        }
+
+        .photo-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .video-grid {
+            grid-template-columns: repeat(2, 1fr);
+            margin-bottom: 0; 
+        }
+
+        /* --- [수정] 카드 스타일 변경 --- */
+        .gallery-item {
+            position: relative; 
+            border-radius: 12px;
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 그림자 부드럽게 */
+            background-color: #fff; /* 배경색 흰색으로 */
+            /* aspect-ratio 제거: 텍스트 길이에 따라 높이 유동적 */
+            display: flex;
+            flex-direction: column; /* 위아래 배치 */
+            border: 1px solid #eee; /* 테두리 살짝 추가 */
+        }
+
+        /* --- [수정] 이미지/영상 영역 스타일 --- */
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* 미디어는 정사각형 비율 유지 */
+            object-fit: cover; 
+            display: block;
+            border-bottom: 1px solid #f0f0f0; /* 텍스트와 구분선 */
+        }
+
+        /* --- [수정] 텍스트 영역 스타일 (기존 hover-desc) --- */
+        .hover-desc {
+            position: relative; /* absolute 제거 */
+            width: 100%;
+            padding: 20px;
+            background: none; /* 그라데이션 제거 */
+            color: #333; /* 글자색 어둡게 */
+            transform: none; /* 숨김 효과 제거 */
+            text-align: left;
+        }
+
+        .hover-date {
+            font-size: 13px;
+            font-weight: bold; 
+            color: #888; /* 날짜는 회색으로 */
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .hover-memo {
+            font-size: 15px;
+            line-height: 1.5;
+            word-break: keep-all;
+            color: #222; /* 본문은 진하게 */
+        }
+
+        /* 호버 시 이미지 확대 효과는 유지하고 싶다면 아래 코드 사용 (선택사항) */
+        /* .gallery-item:hover img { transform: scale(1.05); } */
+        /* 주의: 위 코드를 쓰려면 img를 감싸는 div가 하나 더 필요합니다. 현재 구조에서는 overflow:hidden 때문에 확대 시 잘릴 수 있습니다. 깔끔함을 위해 제거했습니다. */
+
+        footer {
+            width: 100%;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            padding: 70px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .footer-logo img { height: 40px; opacity: 0.8; margin-bottom: 15px; }
+        .copyright { font-size: 14px; color: #888; }
+
+        @media only screen and (max-width: 1024px) {
+            .photo-grid { grid-template-columns: repeat(3, 1fr); } 
+        }
+        @media only screen and (max-width: 768px) {
+            .photo-grid { grid-template-columns: repeat(2, 1fr); } 
+            .video-grid { grid-template-columns: 1fr; } 
+        }
+        @media only screen and (max-width: 480px) {
+            .photo-grid { grid-template-columns: 1fr; } 
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        
+        <header>
+            <div id="logo">
+                <a href="직무2_index.html"><img src="Eunhwa's Logo.png" alt="로고"></a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="직무2_My History.html">My History</a></li>
+                <li><a href="직무2_My Picks Contents.html">My Picks Contents</a></li>
+                <li><a href="직무2_Tastes.html">Tastes</a></li>
+                <li><a href="직무2_Playlist.html">Playlist</a></li>
+                <li><a href="직무2_Gallery.html" class="active">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <section class="gallery-container">
+            
+            <div class="page-header">
+                <h2>Gallery</h2>
+                <p>은화의 2025년의 기록을 모아둔 갤러리</p>
+            </div>
+
+            <div class="grid-section photo-grid">
+                
+                <div class="gallery-item">
+                    <img src="0303.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.03.03</span>
+                        <p class="hover-memo">양배추를 머리에 얹은 히로</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="0718.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.07.18</span>
+                        <p class="hover-memo">고창석 닮은 강아지 히로</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="0811.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.08.11</span>
+                        <p class="hover-memo">화장이 잘 된 날에는 기록!</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="0817.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.08.17</span>
+                        <p class="hover-memo">산책하다가 발견한 소소한 행복! 하늘이 어쩜 이리 예쁠까요~</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="0820.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.08.20</span>
+                        <p class="hover-memo">분기에 1번 씩 꼭 가줘야 하는 나의 최애 만화방</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="0822.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.08.22</span>
+                        <p class="hover-memo">예쁘게 만개한 능소화와 함께</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="0907.png">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.09.07</span>
+                        <p class="hover-memo">친구가 일본 여행에서 사와준 짱구 팩으로 피부관리 울라울라~</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="0927.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.09.27</span>
+                        <p class="hover-memo">체인소맨 극장판을 본 뒤 캐릭터 등신대와 기념사진~!</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="1106.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.11.06</span>
+                        <p class="hover-memo">호빵의 계절이 돌아왔다! 전 피자호빵을 가장 좋아해요</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1126.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.11.26</span>
+                        <p class="hover-memo">게가 들어간 라면... 왠지 미안하다...</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1203.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.12.03</span>
+                        <p class="hover-memo">시험기간, 매우 지친 우리 B반 우리 조금만 더 힘내요!</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="1207.jpg">
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.12.07</span>
+                        <p class="hover-memo">요즘 유행하는 두바이 쫀득쿠키 다들 드셔보셨냐며 ㅎㅎ</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-section video-grid">
+                
+                <div class="gallery-item">
+                    <video controls playsinline>
+                        <source src="1009.mp4" type="video/mp4">
+                    </video>
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.10.09</span>
+                        <p class="hover-memo">동아리원분들과 관악산 등반한 날!</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <video controls playsinline>
+                        <source src="1120.mp4" type="video/mp4">
+                    </video>
+                    <div class="hover-desc">
+                        <span class="hover-date">2025.11.20</span>
+                        <p class="hover-memo">조카 유나와 함께</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <div class="footer-logo">
+                <img src="Eunhwa's Logo.png" alt="푸터 로고">
+            </div>
+            <div class="copyright">
+                © 2025 Eunhwa’s Log. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunhwa's Log - Tastes</title>
+    <style>
+        * { padding: 0; margin: 0; box-sizing: border-box; }
+        li { list-style-type: none; }
+        a { text-decoration: none; color: #333; }
+        body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background-color: #fff; }
+        
+        #page { width: 100%; margin: 0; }
+
+        header {
+            width: 100%;
+            padding: 15px 40px; 
+            border-bottom: solid 1px #cccccc;
+            text-align: left; 
+        }
+        #logo img { height: 50px; vertical-align: middle; }
+
+        nav {
+            width: 100%;
+            min-height: 70px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            border-bottom: 1px solid #eee; 
+        }
+        nav ul { display: flex; flex-wrap: wrap; justify-content: center; }
+        nav li { margin: 5px 10px; }
+        nav li a {
+            display: block;
+            padding: 10px 25px;
+            border: 1px solid #bbb;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #555;
+            transition: 0.3s;
+            background-color: white;
+            white-space: nowrap;
+        }
+        nav li a:hover, nav li a.active {
+            background-color: #f7f7f7;
+            border-color: #888;
+            color: #000;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: flex; 
+            gap: 50px; 
+            align-items: flex-start;
+        }
+
+        .review-section {
+            flex: 7; 
+            display: flex;
+            flex-direction: column;
+            gap: 60px; 
+        }
+
+        .page-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .page-header p {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .review-card {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 50px;
+        }
+        .review-card:last-child {
+            border-bottom: none;
+        }
+
+        .review-title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+            color: #222;
+        }
+
+        .review-image {
+            width: 100%;
+            height: 450px; 
+            object-fit: cover; 
+            border-radius: 15px;
+            margin-bottom: 25px;
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .rating-area {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .stars {
+            color: #FFD700; 
+            font-size: 22px;
+            letter-spacing: 2px;
+        }
+        .score-text {
+            color: #888;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .review-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+            word-break: keep-all;
+        }
+
+        aside.sidebar {
+            flex: 3;
+            background-color: #fff;
+            padding: 30px;
+            border: 1px solid #eee; 
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05); 
+            position: sticky;
+            top: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .sidebar-message {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            word-break: keep-all;
+        }
+        
+        .sidebar-message p {
+            margin-bottom: 15px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            text-align: right;
+            font-family: serif; 
+            font-style: italic;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            padding: 70px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer-logo img { height: 40px; opacity: 0.8; margin-bottom: 15px; }
+        .copyright { font-size: 14px; color: #888; }
+
+        @media only screen and (max-width: 900px) {
+            .content-wrapper {
+                flex-direction: column; 
+            }
+            .review-section, aside.sidebar {
+                width: 100%;
+                flex: auto;
+            }
+            .review-image {
+                height: 250px;
+            }
+            aside.sidebar {
+                position: static; 
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        
+        <header>
+            <div id="logo">
+                <a href="직무2_index.html"><img src="Eunhwa's Logo.png" alt="로고"></a>
+            </div>
+        </header>
+
+        <nav>
+             <ul>
+                <li><a href="직무2_My History.html">My History</a></li>
+                <li><a href="직무2_My Picks Contents.html">My Picks Contents</a></li>
+                <li><a href="직무2_Tastes.html" class="active">Tastes</a></li>
+                <li><a href="직무2_Playlist.html">Playlist</a></li>
+                <li><a href="직무2_Gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-wrapper">
+            
+            <section class="review-section">
+                
+                <div class="page-header">
+                    <h2>Tastes</h2>
+                    <p>은화의 미각을 사로잡은 '찐' 맛집 컬렉션</p>
+                </div>
+
+                <article class="review-card">
+                    <span class="review-title">1. 신선한 야채가 무한리필, 소담촌</span>
+                    
+                    <img src="샤브샤브.jpg" alt="소담촌 샤브샤브" class="review-image">
+                    
+                    <div class="rating-area">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score-text">4.0 / 5.0</span>
+                    </div>
+
+                    <p class="review-text">
+                        건강하고 배부르게 먹고 싶은 날에 방문하는 식당입니다. 신선한 월남쌈 야채와 어묵, 만두 등을 눈치 보지 않고 마음껏 가져다 먹을 수 있어요!
+                        진한 육수에 고기를 살짝 데쳐서 라이스페이퍼에 싸 먹으면 2시간 뚝딱...(정말 두시간 동안 먹어요)
+                        마무리로 해 먹는 칼국수와 계란죽 배불러도 꼭 드셔야 해요!!!
+                    </p>
+                </article>
+
+                <article class="review-card">
+                    <span class="review-title">2. 고소함의 끝판왕, 엘림 들깨수제비칼국수</span>
+                    
+                    <img src="들깨칼국수.jpg" alt="들깨수제비" class="review-image">
+                    
+                    <div class="rating-area">
+                        <span class="stars">★★★★☆</span>
+                        <span class="score-text">4.0 / 5.0</span>
+                    </div>
+
+                    <p class="review-text">
+                        친구들이 동네에 놀러올 때마다 자신있게 데려가는 식당이에요 들깨를 아낌없이 갈아 넣어 국물이 매우 꾸덕하고 맛이 진합니다.
+                        함께 나오는 보리밥에 콩나물과 고추장 넣고 비벼 먹는 게 하나의 별미!!
+                        서비스로 수육도 조금 주시고 부모님 모시고 가기에도 딱 좋은 건강한 맛집입니다 ㅎㅎ
+                    </p>
+                </article>
+
+                <article class="review-card">
+                    <span class="review-title">3. 슴슴한 평양의 맛, 만두옥 수유본점</span>
+                    
+                    <img src="만두국.png" alt="이북식 만두국" class="review-image">
+                    
+                    <div class="rating-area">
+                        <span class="stars">★★★★★</span>
+                        <span class="score-text">5.0 / 5.0</span>
+                    </div>
+
+                    <p class="review-text">
+                        여기는 제 인생 만두집이라 감히 5점 만점을 줍니다. 자극적인 조미료 맛이 아니라, 재료 본연의 맛을 살린 담백하고 슴슴한 이북식 만두의 정석이에요!
+                        추운 날 뜨끈하게 한 그릇 비우면 몸도 마음도 녹아내리는 느낌 ㅎㅎ 강추!!
+                    </p>
+                </article>
+
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-title">Eunhwa's Comment</div>
+                
+                <div class="sidebar-message">
+                    <p>
+                        여러분, 안녕하세요! <br>
+                        해당 페이지에 올라온 맛집들은 광고나 협찬이 절대 아닙니다.
+                    </p>
+                    <p>
+                        제가 친구들과, 가족들과 n년째 다니고 있는 <b>'또간집'</b>들만 엄선해서 모아봤어요.
+                    </p>
+                    <p>
+                        입맛 까다로운 제가 보장합니다.<br>
+                        실패 없는 한 끼를 원하신다면<br>
+                        저를 믿고 꼭 한번 방문해 보세요!
+                    </p>
+                    <p style="color: #d32f2f; font-weight: bold;">
+                        "진심 200% 담아 추천합니다!"
+                    </p>
+                </div>
+
+                <div class="signature">
+                    from. Eunhwa
+                </div>
+            </aside>
+
+        </div>
+
+        <footer>
+            <div class="footer-logo">
+                <img src="Eunhwa's Logo.png" alt="푸터 로고">
+            </div>
+            <div class="copyright">
+                © 2025 Eunhwa’s Log. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

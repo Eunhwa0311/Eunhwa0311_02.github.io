@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunhwa's Log_index</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style-type: none;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+        }
+
+        #page {
+            width: 100%;
+            margin: 0;
+        }
+
+        header {
+            width: 100%;
+            padding: 15px 40px; 
+            border-bottom: solid 1px #cccccc;
+            text-align: left; 
+        }
+        
+        #logo img {
+            height: 50px; 
+            vertical-align: middle;
+        }
+
+        nav {
+            width: 100%;
+            min-height: 70px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            border-bottom: 1px solid #eee; 
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 5px 10px;
+        }
+
+        nav li a {
+            display: block;
+            padding: 10px 25px;
+            border: 1px solid #bbb;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #555;
+            transition: 0.3s;
+            background-color: white;
+            white-space: nowrap;
+        }
+
+        nav li a:hover {
+            background-color: #f7f7f7;
+            border-color: #888;
+            color: #000;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        section.main-content {
+            width: 70%; 
+            float: left;
+            padding: 20px 7px 20px 20px; 
+        }
+        
+        section.main-content img {
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+
+        aside {
+            width: 30%;
+            float: left;
+            padding: 20px 20px 20px 8px; 
+            background-color: #f9f9f9; 
+        }
+
+        aside li {
+            margin-bottom: 15px; 
+        }
+        
+        aside img {
+            width: 100%;
+            height: auto;
+            vertical-align: bottom;
+        }
+
+        #profile-area {
+            width: 100%;
+            background-color: #fff;
+            padding: 50px 20px; 
+            border-top: 1px solid #eee;
+            clear: both;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .profile-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10%;
+            box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .info-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #222;
+            text-align: center; 
+            width: 100%;
+        }
+
+        .content-box {
+            background-color: #f4f4f4;
+            padding: 25px;
+            border-radius: 15px;
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-text p {
+            font-size: 16px;
+            line-height: 2;
+            color: #444;
+            text-align: left;
+            margin-bottom: 5px;
+            padding-left: 10px;
+        }
+
+        .keyword-list {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #888;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 50px;
+            }
+            .profile-col {
+                width: 100%;
+                max-width: 400px;
+            }
+            .content-box {
+                min-height: auto;
+            }
+            .profile-photo img {
+                width: 220px;
+                height: 220px;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+             section.main-content, aside {
+                width: 100%;
+                float: none;
+                padding: 10px; 
+            }
+            aside {
+                margin-top: 0;
+            }
+            header {
+                padding: 15px 20px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        
+        <header>
+            <div id="logo">
+                <a href="직무2_index.html"><img src="Eunhwa's Logo.png" alt="로고"></a>
+            </div>
+        </header>
+
+        <nav>
+             <ul>
+                <li><a href="직무2_My History.html">My History</a></li>
+                <li><a href="직무2_My Picks Contents.html">My Picks Contents</a></li>
+                <li><a href="직무2_Tastes.html">Tastes</a></li>
+                <li><a href="직무2_Playlist.html">Playlist</a></li>
+                <li><a href="직무2_Gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <section class="main-content">
+            <img src="main content.png" alt="메인 콘텐츠">
+        </section>
+
+        <aside>
+            <ul>
+                <li><img src="side bar_1.png" alt="사이드바1"></li>
+                <li><img src="side bar_2.png" alt="사이드바2"></li>
+            </ul>
+        </aside>
+
+        <div class="clear"></div>
+
+        <section id="profile-area">
+            <div class="profile-container">
+                
+                <div class="profile-col profile-photo">
+                    <img src="은화프로필.png" alt="최은화 프로필">
+                </div>
+                
+                <div class="profile-col profile-info">
+                    <h3 class="info-title">Information</h3>
+                    <div class="content-box">
+                        <div class="info-text">
+                            <p><strong>이름:</strong> 최은화 (Eunhwa Choi)</p>
+                            <p><strong>생년월일:</strong> 2005. 03. 11.</p>
+                            <p><strong>MBTI:</strong> INFJ-T</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-col profile-keyword">
+                    <h3 class="info-title">My keyword</h3>
+                    <div class="content-box">
+                        <div class="keyword-list">
+                            #온화함 #성숙함 #긍정적 #소통<br>
+                            #창의적 #진솔함 #성실함 #다재다능
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">
+                <img src="Eunhwa's Logo.png" alt="푸터 로고">
+            </div>
+            <div class="copyright">
+                © 2025 Eunhwa’s Log. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

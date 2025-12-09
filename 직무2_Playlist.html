@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunhwa's Log - Playlist</title>
+    <style>
+        * { padding: 0; margin: 0; box-sizing: border-box; }
+        li { list-style-type: none; }
+        a { text-decoration: none; color: #333; }
+        body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background-color: #fff; }
+        
+        #page { width: 100%; margin: 0; }
+
+        header {
+            width: 100%;
+            padding: 15px 40px; 
+            border-bottom: solid 1px #cccccc;
+            text-align: left; 
+        }
+        #logo img { height: 50px; vertical-align: middle; }
+
+        nav {
+            width: 100%;
+            min-height: 70px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            border-bottom: 1px solid #eee; 
+        }
+        nav ul { display: flex; flex-wrap: wrap; justify-content: center; }
+        nav li { margin: 5px 10px; }
+        nav li a {
+            display: block;
+            padding: 10px 25px;
+            border: 1px solid #bbb;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #555;
+            transition: 0.3s;
+            background-color: white;
+            white-space: nowrap;
+        }
+        nav li a:hover, nav li a.active {
+            background-color: #f7f7f7;
+            border-color: #888;
+            color: #000;
+        }
+
+        .playlist-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .page-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        .page-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .track-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .track-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .album-cover {
+            width: 220px;
+            height: 220px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background-color: #ddd;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .album-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .album-cover:hover img {
+            transform: scale(1.05);
+        }
+
+        .track-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .track-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 5px;
+        }
+        .artist-name {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .track-comment {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            word-break: keep-all;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            padding: 70px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer-logo img { height: 40px; opacity: 0.8; margin-bottom: 15px; }
+        .copyright { font-size: 14px; color: #888; }
+
+        @media only screen and (max-width: 768px) {
+            .track-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .track-info {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        
+        <header>
+            <div id="logo">
+                <a href="직무2_index.html"><img src="Eunhwa's Logo.png" alt="로고"></a>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="직무2_My History.html">My History</a></li>
+                <li><a href="직무2_My Picks Contents.html">My Picks Contents</a></li>
+                <li><a href="직무2_Tastes.html">Tastes</a></li>
+                <li><a href="직무2_Playlist.html" class="active">Playlist</a></li>
+                <li><a href="직무2_Gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <section class="playlist-container">
+            
+            <div class="page-header">
+                <h2>Playlist</h2>
+                <p>좋아하는 음악 앨범들을 소개하는 페이지</p>
+            </div>
+
+            <div class="track-item">
+                <div class="album-cover">
+                    <img src="어려워.jpg" alt="이하이 앨범 커버">
+                </div>
+                <div class="track-info">
+                    <h3 class="track-title">머리어깨무릎발</h3>
+                    <p class="artist-name">이하이 (Lee Hi)</p>
+                    <p class="track-comment">
+                        이하이 특유의 소울풀한 목소리가 돋보이는 곡입니다.<br>
+                        사랑하는 사람에게 자신의 마음을 툭툭 내뱉는 듯한 가사가 인상적이에요.
+                    </p>
+                    <audio controls>
+                        <source src="머리어깨무릎발.mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="track-item">
+                <div class="album-cover">
+                    <img src="자니.jpg" alt="프라이머리 앨범 커버">
+                </div>
+                <div class="track-info">
+                    <h3 class="track-title">자니 (Johnny)</h3>
+                    <p class="artist-name">Primary (feat. Dynamic Duo)</p>
+                    <p class="track-comment">
+                        "지금 뭐해? 자니?" 전국민 구남친 소환송이자 레트로 비트의 정석으로<br>
+                        프라이머리의 세련된 비트 위에 얹어지는 다이나믹 듀오의 랩은 언제 들어도 트렌디합니다!<br>
+                        기분 전환하고 싶을 때 자주 듣는 노래입니다.
+                    </p>
+                    <audio controls>
+                        <source src="프라이머리.mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="track-item">
+                <div class="album-cover">
+                    <img src="우리가 맞다는 대답을 할 거예요.jpg" alt="이강승 앨범 커버">
+                </div>
+                <div class="track-info">
+                    <h3 class="track-title">우리가 맞다는 대답을 할 거예요</h3>
+                    <p class="artist-name">이강승</p>
+                    <p class="track-comment">
+                        잔잔한 기타 선율과 따뜻한 목소리가 인상 깊은 노래예요<br>
+                        햇살 좋은 오후나 산책할 때 들으면 힐링이 되는 곡입니다.
+                    </p>
+                    <audio controls>
+                        <source src="이강승.mp3">
+                    </audio>
+                </div>
+            </div>
+
+            <div class="track-item">
+                <div class="album-cover">
+                    <img src="뉴진스.jpg" alt="뉴진스 앨범 커버">
+                </div>
+                <div class="track-info">
+                    <h3 class="track-title">Supernatural</h3>
+                    <p class="artist-name">NewJeans</p>
+                    <p class="track-comment">
+                        뉴진스만의 청량하면서도 힙한 감성이 제대로 담겨있는 곡입니다.<br>
+                        듣고 있으면 저절로 고개가 까딱거려지는 중독성 강한 노래예요.<br>
+                        드라이브할 때 추천합니다!
+                    </p>
+                    <audio controls>
+                        <source src="뉴진스.mp3">
+                    </audio>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <div class="footer-logo">
+                <img src="Eunhwa's Logo.png" alt="푸터 로고">
+            </div>
+            <div class="copyright">
+                © 2025 Eunhwa’s Log. All rights reserved.
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -155,25 +155,37 @@
         .footer-logo img { height: 40px; opacity: 0.8; margin-bottom: 15px; }
         .copyright { font-size: 14px; color: #888; }
 
-        @media only screen and (max-width: 768px) {
-            .pick-item {
+        @media only screen and (max-width: 1024px) {
+            .profile-container {
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
+                gap: 50px;
             }
-            .poster-box {
+            .profile-col {
                 width: 100%;
-                max-width: 300px; 
-                height: auto;
-                aspect-ratio: 2/3;
+                max-width: 400px;
             }
-            .info-box {
-                text-align: center;
+            .content-box {
+                min-height: auto;
             }
-            .content-desc {
-                text-align: left;
+            .profile-photo img {
+                width: 220px;
+                height: 220px;
             }
-            header { padding: 15px 20px; }
+        }
+        
+        @media only screen and (max-width: 768px) {
+             section.main-content, aside {
+                width: 100%;
+                float: none;
+                padding: 10px; 
+            }
+            aside {
+                margin-top: 0;
+            }
+            header {
+                padding: 15px 20px; 
+            }
         }
     </style>
 </head>
@@ -272,3 +284,4 @@
 </body>
 
 </html>
+

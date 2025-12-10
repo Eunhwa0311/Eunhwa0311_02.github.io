@@ -85,44 +85,43 @@
             margin-bottom: 0; 
         }
 
-        /* --- [수정] 카드 스타일 변경 --- */
+    
         .gallery-item {
             position: relative; 
             border-radius: 12px;
             overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 그림자 부드럽게 */
-            background-color: #fff; /* 배경색 흰색으로 */
-            /* aspect-ratio 제거: 텍스트 길이에 따라 높이 유동적 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+            background-color: #fff;
             display: flex;
-            flex-direction: column; /* 위아래 배치 */
-            border: 1px solid #eee; /* 테두리 살짝 추가 */
+            flex-direction: column; 
+            border: 1px solid #eee; 
         }
 
-        /* --- [수정] 이미지/영상 영역 스타일 --- */
+       
         .gallery-item img,
         .gallery-item video {
             width: 100%;
-            aspect-ratio: 1 / 1; /* 미디어는 정사각형 비율 유지 */
+            aspect-ratio: 1 / 1; 
             object-fit: cover; 
             display: block;
-            border-bottom: 1px solid #f0f0f0; /* 텍스트와 구분선 */
+            border-bottom: 1px solid #f0f0f0; 
         }
 
-        /* --- [수정] 텍스트 영역 스타일 (기존 hover-desc) --- */
+       
         .hover-desc {
-            position: relative; /* absolute 제거 */
+            position: relative; 
             width: 100%;
             padding: 20px;
-            background: none; /* 그라데이션 제거 */
-            color: #333; /* 글자색 어둡게 */
-            transform: none; /* 숨김 효과 제거 */
+            background: none; 
+            color: #333;
+            transform: none; 
             text-align: left;
         }
 
         .hover-date {
             font-size: 13px;
             font-weight: bold; 
-            color: #888; /* 날짜는 회색으로 */
+            color: #888;
             margin-bottom: 8px;
             display: block;
         }
@@ -131,12 +130,8 @@
             font-size: 15px;
             line-height: 1.5;
             word-break: keep-all;
-            color: #222; /* 본문은 진하게 */
+            color: #222; 
         }
-
-        /* 호버 시 이미지 확대 효과는 유지하고 싶다면 아래 코드 사용 (선택사항) */
-        /* .gallery-item:hover img { transform: scale(1.05); } */
-        /* 주의: 위 코드를 쓰려면 img를 감싸는 div가 하나 더 필요합니다. 현재 구조에서는 overflow:hidden 때문에 확대 시 잘릴 수 있습니다. 깔끔함을 위해 제거했습니다. */
 
         footer {
             width: 100%;
@@ -153,6 +148,7 @@
             .photo-grid { grid-template-columns: repeat(3, 1fr); } 
         }
         @media only screen and (max-width: 768px) {
+            header {padding: 15px 20px;}
             .photo-grid { grid-template-columns: repeat(2, 1fr); } 
             .video-grid { grid-template-columns: 1fr; } 
         }
@@ -316,5 +312,6 @@
 </body>
 
 </html>
+
 
 

@@ -150,14 +150,36 @@
         .footer-logo img { height: 40px; opacity: 0.8; margin-bottom: 15px; }
         .copyright { font-size: 14px; color: #888; }
 
-        @media only screen and (max-width: 768px) {
-            .track-item {
+       @media only screen and (max-width: 1024px) {
+            .profile-container {
                 flex-direction: column;
-                text-align: center;
-                gap: 20px;
+                align-items: center;
+                gap: 50px;
             }
-            .track-info {
+            .profile-col {
                 width: 100%;
+                max-width: 400px;
+            }
+            .content-box {
+                min-height: auto;
+            }
+            .profile-photo img {
+                width: 220px;
+                height: 220px;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+             section.main-content, aside {
+                width: 100%;
+                float: none;
+                padding: 10px; 
+            }
+            aside {
+                margin-top: 0;
+            }
+            header {
+                padding: 15px 20px; 
             }
         }
     </style>
@@ -273,5 +295,6 @@
 </body>
 
 </html>
+
 
 
